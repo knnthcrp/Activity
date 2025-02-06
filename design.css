@@ -1,0 +1,111 @@
+/* General body styles */
+body {
+    background-color: #ffe6e6;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -37.5px;
+    left: 0;
+}
+
+.heart::after {
+    left: -37.5px;
+    top: 0;
+}
+
+/* Button styles */
+button {
+    padding: 47px 70px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    letter-spacing: 3px;
+    background-color: #ffc2a8;
+    color: white;
+    box-shadow: rgba(255, 155, 135, 0.6) 0px 5px 20px 0px;
+}
+
+/* Hidden message container */
+.container {
+    display: none;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+    width: 300px;
+    padding: 20px;
+    background-color: #ffc2c2;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #333333; /* Dark gray */
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Show message */
+.show-message {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .heart {
+        width: 25px;
+        height: 25px;
+    }
+
+    button {
+        padding: 20px 40px;
+        font-size: 14px;
+    }
+}

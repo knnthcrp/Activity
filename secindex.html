@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can I court you?</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="gifcontainer" id="gifContainer">
+        <img src="https://media.tenor.com/3BsRwqoPs_MAAAAM/z%C5%82o%C5%9B%C4%87.gif" alt="Cat with Flower" id="gif">
+    </div>
+
+    <div class="question" id="question">
+        <h2>Can I court you?</h2>
+        <div class="buttons">
+            <button id="yesButton" onclick="yesAnswer()">Yes</button>
+            <button id="noButton" onclick="noAnswer()">No</button>
+        </div>
+    </div>
+
+    <div id="yayMessage" style="display:none;">
+        <h2>YAYYYY!!</h2>
+    </div>
+
+    <script>
+        function yesAnswer() {
+            document.getElementById("yayMessage").style.display = "block";
+            document.getElementById("question").style.display = "none";
+
+            // Change GIF
+            const gifContainer = document.getElementById("gifContainer");
+            gifContainer.innerHTML = `
+                <img src="https://i.pinimg.com/originals/e6/ed/ad/e6edad9900a37d05c1f8dfff7f5ea7a4.gif" alt="YAYY" id="gif">
+            `;
+        }
+
+        function noAnswer() {
+            const noButton = document.getElementById("noButton");
+            let size = 100;
+
+            const interval = setInterval(function () {
+                if (size > 20) {
+                    size -= 5;
+                    noButton.style.transform = `scale(${size / 100})`;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
